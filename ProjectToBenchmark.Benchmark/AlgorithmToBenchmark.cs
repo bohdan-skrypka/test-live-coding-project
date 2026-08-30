@@ -20,27 +20,27 @@ namespace ProjectToBenchmark.Benchmark
     public class AlgorithmToBenchmark
     {
         [Benchmark]
-        public void ClassTobenchmark()
+        public void ListOfPointsAsClassTobenchmark()
         {
-            Program.ListWithClass();
+            Program.ListOfPointsAsClass();
         }
 
         [Benchmark]
-        public void StructTobenchmark()
+        public void ListOfPointAsStructTobenchmark()
         {
-            Program.ListWithStruct();
+            Program.ListOfPointsAsStruct();
         }
 
         [Benchmark]
-        public void GrowableArrayTobenchmarkWithClass()
+        public void GrowableArrayOfClassPointsTobenchmark()
         {
-            Program.GrowableArrayWithClass();
+            Program.GrowableArrayWithPointsAsClass();
         }
 
         [Benchmark]
-        public void GrowableArrayTobenchmarkWithStruct()
+        public void GrowableArrayOfStructPointsTobenchmark()
         {
-            Program.GrowableArrayWithStruct();
+            Program.GrowableArrayWithPointsAsStruct();
         }
     }
 }

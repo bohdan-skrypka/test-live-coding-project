@@ -11,18 +11,18 @@ namespace ProjectToBenchmark.Benchmark
     public class StringbuilderBenchmark
     {
         [Params(10, 100, 1000, 10_000)]
-        public static int N;
+        public static int LoopStaticCounterForLoopData;
 
-        public static string str = "jhjjkakjkj asdjasjkasjkkj jajiiieie hjjjjs jjjjjvnnvbb " +
+        public static string test_str = "jhjjkakjkj asdjasjkasjkkj jajiiieie hjjjjs jjjjjvnnvbb " +
             "kkdsfjsddsfosdofsdjkjlxjlk ll ldsldl lorotiiyi ollgl l" +
             "lliiiyiykfkjgjll;;km;''lkdskfksji49030" +
             "sdflksdkdsk kdsfk lfloo4959 kfdl l;df 599olfdl dfk 9fd9r999  odof fl df9994o fdo 9fd9 o4]" +
             "b hhshsh uuwuui iiahh kkakshh hgh gfgfg gasjj gjjgj";
 
-        public static string ConcatString(string unsortedString)
+        private static string ConcatStringToBenchmark(string unsortedString)
         {
-            List<int> list = new List<int>(N);
-            for (int i = 0; i < N; i++)
+            List<int> list = new List<int>(LoopStaticCounterForLoopData);
+            for (int i = 0; i < LoopStaticCounterForLoopData; i++)
             {
                 list.Add(i);
             }
@@ -30,6 +30,7 @@ namespace ProjectToBenchmark.Benchmark
             list.Sort();
 
             var str = "";
+            // value type added for the benchmark
             foreach (var digit in list)
             {
                 str += digit + " ";
@@ -38,18 +39,18 @@ namespace ProjectToBenchmark.Benchmark
             return str;
         }
 
-        public static string StringBuilder(string unsortedString)
+        private static string StringBuilderToBenchmark(string unsortedString)
         {
-            List<int> list = new List<int>(N);
-            for (int i = 0; i < N; i++)
+            List<int> listOfIntegerNumbers = new List<int>(LoopStaticCounterForLoopData);
+            for (int i = 0; i < LoopStaticCounterForLoopData; i++)
             {
-                list.Add(i);
+                listOfIntegerNumbers.Add(i);
             }
 
-            list.Sort();
+            listOfIntegerNumbers.Sort();
 
-            StringBuilder builder = new StringBuilder(capacity: list.Count);
-            foreach (var digit in list)
+            StringBuilder builder = new StringBuilder(capacity: listOfIntegerNumbers.Count);
+            foreach (var digit in listOfIntegerNumbers)
             {
                 builder.Append(digit);
             }
@@ -60,13 +61,13 @@ namespace ProjectToBenchmark.Benchmark
         [Benchmark]
         public void StringBuilderToBenchmark()
         {
-            var t = StringBuilder(str);
+            var resultString = StringBuilderToBenchmark(test_str);
         }
 
         [Benchmark(Baseline = true)]
         public void StringConcatToBenchmark()
         {
-            var t = ConcatString(str);
+            var resultString = ConcatStringToBenchmark(test_str);
         }
     }
 }

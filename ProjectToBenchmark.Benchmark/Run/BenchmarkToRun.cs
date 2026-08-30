@@ -24,8 +24,9 @@ namespace ProjectToBenchmark.Benchmark.Run
     {
         static void Main()
         {
-            // BenchmarkRunner.Run<StringbuilderBenchmark>();
-            BenchmarkRunner.Run<PostfixToBenchmark>();
+            //BenchmarkRunner.Run<StringbuilderBenchmark>();
+            //BenchmarkRunner.Run<PostfixToBenchmark>();
+            //BenchmarkRunner.Run<AlgorithmToBenchmark>();
         }
     }
 }

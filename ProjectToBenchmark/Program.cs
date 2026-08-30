@@ -12,7 +12,7 @@ namespace ProjectToBenchmark
             Console.WriteLine();
         }
 
-        public static void ListWithClass()
+        public static void ListOfPointsAsClass()
         {
             List<PointClass> pointClasses = new List<PointClass>(InitialSize);
             for (int i = 0; i < 10000; i++)
@@ -21,7 +21,7 @@ namespace ProjectToBenchmark
             }
         }
 
-        public static void ListWithStruct()
+        public static void ListOfPointsAsStruct()
         {
             List<PointStruct> pointClasses = new List<PointStruct>(InitialSize);
             for (int i = 0; i < 10000; i++)
@@ -30,7 +30,7 @@ namespace ProjectToBenchmark
             }
         }
 
-        public static void GrowableArrayWithStruct()
+        public static void GrowableArrayWithPointsAsStruct()
         {
             GrowableArray<PointStruct> vs = new GrowableArray<PointStruct>(InitialSize);
             for (int i = 0; i < 10000; i++)
@@ -39,7 +39,7 @@ namespace ProjectToBenchmark
             }
         }
 
-        public static void GrowableArrayWithClass()
+        public static void GrowableArrayWithPointsAsClass()
         {
             GrowableArray<PointClass> vs = new GrowableArray<PointClass>(InitialSize);
             for (int i = 0; i < 10000; i++)
