@@ -3,7 +3,7 @@ using BenchmarkDotNet.Jobs;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjectToBenchmark.Benchmark
+namespace BusinessLogic.StringAlgorithms
 {
     [KeepBenchmarkFiles(true),
      MemoryDiagnoser,

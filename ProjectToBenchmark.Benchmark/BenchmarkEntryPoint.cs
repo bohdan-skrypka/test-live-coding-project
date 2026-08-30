@@ -1,10 +1,13 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
+using ProjectToBenchmark.ToBenchmark.Algorithms.Collections;
+using ProjectToBenchmark.ToBenchmark.Algorithms.Loop;
+using ProjectToBenchmark.ToBenchmark.Algorithms.String;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjectToBenchmark.Benchmark.Run
+namespace ProjectToBenchmark.Benchmark
 {
     //[MemoryDiagnoser]
     ////[SimpleJob(runtimeMoniker: RuntimeMoniker.Net461)]
@@ -20,13 +23,13 @@ namespace ProjectToBenchmark.Benchmark.Run
     ////[SimpleJob(runtimeMoniker: RuntimeMoniker.NetCoreApp31)]
     //[SimpleJob(runtimeMoniker: RuntimeMoniker.NetCoreApp31)]
     //[KeepBenchmarkFiles]
-    public class BenchmarkToRun
+    public class BenchmarkEntryPoint
     {
         static void Main()
         {
-            //BenchmarkRunner.Run<StringbuilderBenchmark>();
-            //BenchmarkRunner.Run<PostfixToBenchmark>();
-            //BenchmarkRunner.Run<AlgorithmToBenchmark>();
+            BenchmarkRunner.Run<StringsBenchmark>();
+            // BenchmarkRunner.Run<LoopAlgorithmsBenchmark>();
+            // BenchmarkRunner.Run<CollectionsBenchmark>();
         }
     }
 }

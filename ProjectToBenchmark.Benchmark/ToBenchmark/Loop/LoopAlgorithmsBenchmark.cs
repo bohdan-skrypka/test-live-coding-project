@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 
-namespace ProjectToBenchmark.Benchmark
+namespace ProjectToBenchmark.ToBenchmark.Algorithms.Loop
 {
     [MemoryDiagnoser]
     //[SimpleJob(runtimeMoniker: RuntimeMoniker.Net461)]
@@ -17,26 +17,26 @@ namespace ProjectToBenchmark.Benchmark
     //[SimpleJob(runtimeMoniker: RuntimeMoniker.NetCoreApp31)]
     [SimpleJob(runtimeMoniker: RuntimeMoniker.NetCoreApp31)]
     [KeepBenchmarkFiles]
-    public class PostfixToBenchmark
+    public class LoopAlgorithmsBenchmark
     {
         [Params(100, 1_00, 10_000, 100_000)]
-        public int Length { get; set; }
+        public int LoopSize { get; set; }
 
         [Benchmark(Baseline = true)]
-        public void ClassTobenchmark()
+        public void ForLoopPostfixBenchmark()
         {
             int count = 0;
-            for (int i = 0; i < Length; i++)
+            for (int i = 0; i < LoopSize; i++)
             {
                 ++count;
             }
         }
 
         [Benchmark]
-        public void StructTobenchmark()
+        public void ForLoopPrefixTobenchmark()
         {
             int count = 0;
-            for (int i = 0; i < Length; ++i)
+            for (int i = 0; i < LoopSize; ++i)
             {
                 ++count;
             }
